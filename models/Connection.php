@@ -11,6 +11,7 @@ class Connection {
         $this->conectar();
     }
 
+    // portero para entrar a la conexión (único punto de entrada)
     public static function getInstance() {
         if (self::$instancia === null) {
             self::$instancia = new self(); 
