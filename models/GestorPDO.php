@@ -94,12 +94,12 @@ class GestorPDO {
     private function crearObjetoTarea($fila) {
         if ($fila['tipoTarea'] === 'TareaEvaluable') {
             return new TareaEvaluable(
-                $fila['id'], $fila['titulo'], $fila['asignatura'],
+                $fila['titulo'], $fila['asignatura'],
                 $fila['descripcion'], $fila['fecha'], $fila['notaMinima']
             );
         } else {
             return new TareaRepaso(
-                $fila['id'], $fila['titulo'], $fila['asignatura'],
+                $fila['titulo'], $fila['asignatura'],
                 $fila['descripcion'], $fila['fecha'], $fila['comentario']
             );
         }

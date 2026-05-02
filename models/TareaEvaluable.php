@@ -5,7 +5,7 @@ class TareaEvaluable extends Tarea {
     private $notaMinima;
 
     public function __construct($titulo, $asignatura, $descripcion, $fecha, $notaMinima, $id=0 ) {
-        parent::__construct($id, $titulo, $asignatura, $descripcion, $fecha);
+        parent::__construct($titulo, $asignatura, $descripcion, $fecha, $id);
         $this->notaMinima = $notaMinima;
     }
 

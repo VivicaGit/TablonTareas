@@ -22,9 +22,9 @@ class TareaController {
             $fecha = $_POST['fecha'];
 
             if ($tipo === 'TareaEvaluable') {
-                $tarea = new TareaEvaluable(0, $titulo, $asignatura, $descripcion, $fecha, $_POST['notaMinima']);
+                $tarea = new TareaEvaluable($titulo, $asignatura, $descripcion, $fecha, $_POST['notaMinima']);
             } else {
-                $tarea = new TareaRepaso(0, $titulo, $asignatura, $descripcion, $fecha, $_POST['comentario']);
+                $tarea = new TareaRepaso($titulo, $asignatura, $descripcion, $fecha, $_POST['comentario']);
             }
 
             $this->gestor->agregar($tarea);
