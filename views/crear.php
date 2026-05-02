@@ -1,3 +1,4 @@
+<?php /** @var string $colorFondo */ ?>
 <!DOCTYPE html>
 <html>
 <head><title>Nueva Tarea</title></head>

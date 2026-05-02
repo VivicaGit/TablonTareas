@@ -1,3 +1,6 @@
+<?php /** @var string $colorFondo */ ?>
+<?php /** @var object $tareas */ ?>
+<?php /** @var object $tarea */ ?>
 <!DOCTYPE html>
 <html>
 <head>

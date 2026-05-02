@@ -1,3 +1,5 @@
+<?php /** @var string $colorFondo */ ?>
+<?php /** @var object $tarea */ ?>
 <!DOCTYPE html>
 <html>
 <head><title>Editar Tarea</title></head>
