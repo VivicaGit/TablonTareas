@@ -1,6 +1,6 @@
 {
     "host": "db",
-    "username": "root",
+    "userName": "root",
     "password": "test",
     "db": "TablonTareas"
 }
