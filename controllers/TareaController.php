@@ -10,6 +10,7 @@ class TareaController {
 
     public function index() {
         $tareas = $this->gestor->listar();
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/listar.php";
     }
 
@@ -31,7 +32,7 @@ class TareaController {
             header("Location: index.php");
             exit;
         }
-
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/crear.php";
     }
 
@@ -55,7 +56,7 @@ class TareaController {
             header("Location: index.php");
             exit;
         }
-
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/editar.php";
     }
 

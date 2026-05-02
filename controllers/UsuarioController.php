@@ -16,7 +16,7 @@ class UsuarioController {
             header("Location: index.php?accion=login");
             exit;
         }
-
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/alta.php";
     }
 
@@ -45,7 +45,7 @@ class UsuarioController {
                 $error = "Credenciales incorrectas.";
             }
         }
-
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/login.php";
     }
 
@@ -81,7 +81,7 @@ class UsuarioController {
             header("Location: index.php");
             exit;
         }
-
+        $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
         include "views/preferencias.php";
     }
 }
