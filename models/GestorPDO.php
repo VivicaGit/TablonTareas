@@ -12,10 +12,12 @@ class GestorPDO {
     // tareas
     
     public function listar() {
-        $resultado = $this->conn->query("SELECT * FROM tareas ORDER BY fecha ASC");
+        $stmt = $this->conn->prepare("SELECT * FROM tareas ORDER BY fecha ASC");
+        $stmt->execute();
+        
         $tareas = [];
 
-        while ($fila = $resultado->fetch(PDO::FETCH_ASSOC)) {
+        while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $tareas[] = $this->crearObjetoTarea($fila);
         }
         return $tareas;
