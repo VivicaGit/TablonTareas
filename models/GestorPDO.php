@@ -37,7 +37,7 @@ class GestorPDO {
                         VALUES (:tipo, :titulo, :asignatura, :descripcion, :fecha, :notaMinima)";
                 $stmt = $this->conn->prepare($sql);
                 $stmt->bindValue(':tipo', 'TareaEvaluable');
-                $stmt->bindValue(':notaMinima', $tarea->getNotaMinima());
+                $stmt->bindValue(':notaMinima', $tarea->getNotaMinima() ?: null);
             } else {
                 $sql = "INSERT INTO tareas (tipoTarea, titulo, asignatura, descripcion, fecha, comentario)
                         VALUES (:tipo, :titulo, :asignatura, :descripcion, :fecha, :comentario)";
@@ -64,7 +64,7 @@ class GestorPDO {
                 $sql = "UPDATE tareas SET titulo=:titulo, asignatura=:asignatura, descripcion=:descripcion,
                         fecha=:fecha, notaMinima=:notaMinima WHERE id=:id";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->bindValue(':notaMinima', $tarea->getNotaMinima());
+                $stmt->bindValue(':notaMinima', $tarea->getNotaMinima() ?: null);
             } else {
                 $sql = "UPDATE tareas SET titulo=:titulo, asignatura=:asignatura, descripcion=:descripcion,
                         fecha=:fecha, comentario=:comentario WHERE id=:id";
