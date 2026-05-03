@@ -57,11 +57,6 @@ class UsuarioController {
             setcookie('usuario_login', '', time() - 3600, '/');
         }
 
-        // borramos la cookie de color al cerrar sesión
-        if (isset($_COOKIE['colorFondo'])) {
-            setcookie('colorFondo', '', time() - 3600, '/');
-        }
-
         header("Location: index.php?accion=login");
         exit;
     }
