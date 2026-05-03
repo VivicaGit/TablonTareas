@@ -11,6 +11,7 @@ class TareaController {
     public function index() {
         $tareas = $this->gestor->listar();
         $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff';
+        $esOscuro = $colorFondo === '#1a1a1a';
         include "views/listar.php";
     }
 

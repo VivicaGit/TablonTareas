@@ -2,22 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head><title>Preferencias</title></head>
-<body style="background-color: <?= $colorFondo ?>">
+<?php $esOscuro = $colorFondo === '#1a1a1a'; ?>
+<body style="background-color: <?= $colorFondo ?>; color: <?= $esOscuro ? '#f0f0f0' : '#000000' ?>;">
 
     <h1>Color de fondo</h1>
 
     <form method="POST">
         <label>
             <input type="radio" name="colorFondo" value="#ffffff"
-                <?= ($colorFondo === '#ffffff') ? 'checked' : '' ?>> Blanco
+                <?= ($colorFondo === '#ffffff') ? 'checked' : '' ?>> Claro
         </label><br>
         <label>
-            <input type="radio" name="colorFondo" value="#d0e8ff"
-                <?= ($colorFondo === '#d0e8ff') ? 'checked' : '' ?>> Azul claro
-        </label><br>
-        <label>
-            <input type="radio" name="colorFondo" value="#d0ffd8"
-                <?= ($colorFondo === '#d0ffd8') ? 'checked' : '' ?>> Verde claro
+            <input type="radio" name="colorFondo" value="#1a1a1a"
+                <?= ($colorFondo === '#1a1a1a') ? 'checked' : '' ?>> Oscuro
         </label><br><br>
 
         <button type="submit">Guardar preferencia</button>

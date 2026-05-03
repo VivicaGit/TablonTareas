@@ -1,8 +1,20 @@
 <?php /** @var string $colorFondo */ ?>
+<?php /** @var bool $esOscuro */ ?>
+<?php $esOscuro = $colorFondo === '#1a1a1a'; ?>
 <!DOCTYPE html>
 <html>
-<head><title>Nueva Tarea</title></head>
-<body style="background-color: <?= $colorFondo ?>">
+<head>
+    <title>Nueva Tarea</title>
+    <style>
+    input, textarea, select { 
+        background-color: <?= $esOscuro ? '#333' : '#fff' ?>; 
+        color: <?= $esOscuro ? '#f0f0f0' : '#000' ?>;
+        border: 1px solid <?= $esOscuro ? '#666' : '#ccc' ?>;
+    }
+    a { color: <?= $esOscuro ? '#90c8ff' : 'blue' ?>; }
+    </style>
+</head>
+<body style="background-color: <?= $colorFondo ?>; color: <?= $esOscuro ? '#f0f0f0' : '#000000' ?>;">
 
     <h1>Nueva Tarea</h1>
 

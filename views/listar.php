@@ -1,14 +1,20 @@
 <?php /** @var string $colorFondo */ ?>
-<?php /** @var object $tareas */ ?>
-<?php /** @var object $tarea */ ?>
+<?php /** @var array $tareas */ ?>
+<?php /** @var bool $esOscuro */ ?>
+<?php $esOscuro = $colorFondo === '#1a1a1a'; ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Tablón de Tareas DAW</title>
+    <style>
+    table { border-collapse: collapse; }
+    th { background-color: <?= $esOscuro ? '#444' : '#ddd' ?>; }
+    a { color: <?= $esOscuro ? '#90c8ff' : 'blue' ?>; }
+    </style>
 </head>
-<body style="background-color: <?= $colorFondo ?>">
+<body style="background-color: <?= $colorFondo ?>; color: <?= $esOscuro ? '#f0f0f0' : '#000000' ?>;">
 
-    <div style="background:#eee; padding:10px; margin-bottom:20px;">
+    <div style="background: <?= $esOscuro ? '#333' : '#eee' ?>; padding:10px; margin-bottom:20px;">
         <?php if (isset($_SESSION['usuario_id'])): ?>
             Hola, <b><?= $_SESSION['usuarioEmail'] ?></b> |
             <a href="index.php?accion=preferencias">Color de fondo</a> |
@@ -34,7 +40,7 @@
             <th>Descripción</th>
             <th>Fecha entrega</th>
             <th>Días restantes</th>
-            <th>Extra</th>
+            <th>Detalle</th>
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <th>Acciones</th>
             <?php endif; ?>
@@ -43,22 +49,21 @@
         <?php foreach ($tareas as $tarea): ?>
             <?php
                 $dias = $tarea->getDiasRestantes();
-                // Rojo si quedan 3 días o menos (o ya pasó)
-                $colorFila = ($dias <= 3) ? 'background-color:#ffcccc;' : '';
+                $colorFila = ($dias <= 3) ? 'background-color:#ffcccc; color:#000000;' : '';
             ?>
-            <tr style="<?= $colorFila ?>">
+            <tr>
                 <td><?= $tarea->getId() ?></td>
                 <td><?= $tarea->getEtiqueta() ?></td>
                 <td><?= $tarea->getTitulo() ?></td>
                 <td><?= $tarea->getAsignatura() ?></td>
-                <td><?= $tarea->getDescripcion() ?></td>
+                <td style="white-space: pre-wrap; max-width:200px"><?= $tarea->getDescripcion() ?></td>
                 <td><?= $tarea->getFecha() ?></td>
-                <td><?= $dias ?> días</td>
+                <td style="<?= $colorFila ?>"><?= $dias ?> días</td>
                 <td>
                     <?php if ($tarea instanceof TareaEvaluable): ?>
-                        Nota mín: <?= $tarea->getNotaMinima() ?>
+                        <b>Nota mínima:</b> <?= $tarea->getNotaMinima() ?>
                     <?php else: ?>
-                        <?= $tarea->getComentario() ?>
+                        <b>Comentario:</b> <?= $tarea->getComentario() ?>
                     <?php endif; ?>
                 </td>
                 <?php if (isset($_SESSION['usuario_id'])): ?>

@@ -1,7 +1,9 @@
+<?php $colorFondo = $_COOKIE['colorFondo'] ?? '#ffffff'; ?>
+<?php $esOscuro = $colorFondo === '#1a1a1a'; ?>
 <!DOCTYPE html>
 <html>
 <head><title>Iniciar Sesión</title></head>
-<body>
+<body style="background-color: <?= $colorFondo ?>; color: <?= $esOscuro ? '#f0f0f0' : '#000000' ?>;">
 
     <h1>Iniciar Sesión</h1>
 
