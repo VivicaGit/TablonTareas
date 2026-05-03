@@ -50,7 +50,7 @@ class UsuarioController {
     }
 
     public function logout() {
-        $_SESSION = [];
+        session_unset();
         session_destroy();
 
         if (isset($_COOKIE['usuario_login'])) {
@@ -64,8 +64,6 @@ class UsuarioController {
     public function preferencias() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $color = $_POST['colorFondo'] ?? '#ffffff';
-
-            // Cookie dura 30 días
             setcookie('colorFondo', $color, [
                 'expires'  => time() + (86400 * 30),
                 'path'     => '/',
